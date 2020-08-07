@@ -1,6 +1,5 @@
-const { app, BrowserWindow, Menu } = require('electron');
+const { app, BrowserWindow } = require('electron');
 const path = require('path')
-const fs = require('fs')
 
 let mainWindow;
 let loadingScreen;
@@ -26,15 +25,16 @@ function createWindow() {
     height: 720,
     width: 1280,
     webPreferences: {
-      nodeIntegration: true,
+      nodeIntegration: false,
       preload: path.join(__dirname, 'preload.js'),
+      enableRemoteModule: true,
     },
     show: false,
     frame: false,
     icon: __dirname + '/assets/icon.png'
   });
 
-  mainWindow.loadURL('https://ott.vexcited.ml')
+  mainWindow.loadURL('https://ott.vexcited.ml');
 
   mainWindow.on('closed', function () {
     mainWindow = null

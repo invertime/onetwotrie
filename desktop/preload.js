@@ -8,7 +8,7 @@ const { $ } = require('custom-electron-titlebar/lib/common/dom');
 
 window.addEventListener('DOMContentLoaded', () => {
   new customTitlebar.Titlebar({
-    backgroundColor: customTitlebar.Color.fromHex('#2e3440'),
+    backgroundColor: customTitlebar.Color.fromHex('#2e344000'),
     icon: 'images/icon.png',
   });
 
