@@ -13,8 +13,9 @@
 
 <script>
     $.getJSON('products.json', function(data) {
-        $('#id').html(data);
+        $('#id').html('<pre>' + JSON.stringify(data) + '</pre>');
     });
 </script>
+
 </body>
 </html>
