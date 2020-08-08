@@ -1,21 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
-<meta name="Description" content="OneTwoTrie - API v1"/>
-<title></title>
-</head>
-<body>
-<div id="id"></div>
+<pre style="word-wrap: break-word; white-space: pre-wrap; font-family: monospace;" id="pre"></pre>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 <script>
-    $.getJSON('products.json', function(data) {
-        $('#id').html('<pre>' + JSON.stringify(data) + '</pre>');
+    $.getJSON('https://raw.githubusercontent.com/vexcited/onetwotrie/master/api/products.json', function(data) {
+        $('#pre').html(JSON.stringify(data));
     });
 </script>
-
-</body>
-</html>
