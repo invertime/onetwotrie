@@ -13,15 +13,21 @@ Uniquement disponible en France acutellement.
 
 Uniquement disponible sur Windows (actuellement...) en
 
-* [Version installable (recommandée)](https://github.com/Vexcited/onetwotrie/releases/download/desktop-v07.08.2020/setup-onetwotrie-07082020.msi)
-* [Version portable](https://github.com/Vexcited/onetwotrie/releases/download/desktop-v07.08.2020/portable-onetwotrie-07082020-win32-ia32.zip)
+* [Dernières versions](https://github.com/Vexcited/onetwotrie/releases/)
 
 ## [3] Application Mobile
-Désolé mais l'application est en cours de développement...
-Commencement de l'application -> quand l'API sera terminée
+En cours de développement...
 
 ## [4] API
-Cette section est en cours de développement... (mais sera bientôt disponible)
+[Informations complémentaires](https://vexcited.github.io/onetwotrie/api/)
+
+- URL => `https://vexcited.github.io/onetwotrie/api/product.html?{QUERY}`
+
+`?q={query}`
+Recherche dans code-barres ; nom ; marque
+
+`?cb={query}`
+Recherche un code-barre
 
 ### Credits
 [Collège Albert Calmette](http://www.clg-calmette.ac-limoges.fr/)
