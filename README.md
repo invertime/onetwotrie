@@ -11,7 +11,7 @@ Uniquement disponible en France acutellement.
 
 À la place de consulter https://ott.vexcited.ml à chaque fois, vous pouvez directement y accéder depuis l'application sur ordinateur.
 
-Uniquement disponible sur Windows (actuellement...) en
+Uniquement disponible sur Windows (actuellement...)
 
 * [Dernières versions](https://github.com/Vexcited/onetwotrie/releases/)
 
