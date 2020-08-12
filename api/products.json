@@ -1,3 +1,16 @@
 [
-  {"barcode": "3274080005003", "name": "Eau de source 150cl", "brand": "Cristaline", "type":"bouteille", "ext":"jpg"}
+    {
+        "barcode": "3274080005003",
+        "name": "Eau de source 150cl",
+        "brand": "Cristaline",
+        "type": "bouteille",
+        "ext": "jpg"
+    },
+    {
+        "barcode": "123456789123",
+        "name": "Produit 1,5L",
+        "brand": "OneTwoTrie",
+        "type": "bouteille",
+        "ext": "jpg"
+    }
 ]
