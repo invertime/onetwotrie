@@ -51,6 +51,9 @@
         a:hover{
             color:#5E81AC;
         }
+        .modal-body p{
+            color: #2E3440;
+        }
     </style>
 </head>
 <body>
@@ -61,17 +64,73 @@
                 <img height="128px" width="128px" class="img-fluid" src="https://raw.githubusercontent.com/vexcited/onetwotrie/master/desktop/assets/icon.png" alt="">
                 <h1 class="display-1">OneTwoTrie</h1>
                 <p class="lead">... et un pas de plus vers l'écologie.</p>
+
+                <p class="lead">
+                    Application / 
+                    <a data-toggle="modal" data-target="#desktop" href="javascript:void(0);">PC</a>
+                     - 
+                     <a data-toggle="modal" data-target="#mobile" href="javascript:void(0);">Mobile</a>
+                </p>
                 
                 <p class="lead">
                     <a href="https://github.com/vexcited/onetwotrie">GitHub</a>
                      - 
                     <a href="https://vexcited.github.io/onetwotrie/api">API</a>
                      - 
-                    <a href="https://ott.vexcited.ml">Website</a>
+                    <a href="https://ott.vexcited.ml">Site internet</a>
                 </p>
             </div>
         </div>
     </div>
 
+    <!-- Modal -->
+<div class="modal fade" id="desktop" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Application PC</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <h2>Windows</h2>
+            <p><a href="https://github.com/Vexcited/onetwotrie/releases/download/desktop-v07.08.2020.2/setup-onetwotrie-070820202.msi">- Version installable (.msi | Recommandée !)</a> <br>
+               <a href="https://github.com/Vexcited/onetwotrie/releases/download/desktop-v07.08.2020.2/portable-onetwotrie-070820202-win32-ia32.zip">- Version portable (sans installation)</a>
+            </p>
+            <h2>Linux</h2>
+            <p>Aucune version est disponible actuellement, désolé !</p>
+            <h2>Mac OS</h2>
+            <p>Aucune version est disponible actuellement, désolé !</p>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+        </div>
+      </div>
+    </div>
+</div>
+
+<div class="modal fade" id="mobile" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Application Mobile</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <h2>Android</h2>
+            <p>Aucune version est disponible actuellement, désolé !</p>
+            <h2>iOS</h2>
+            <p>Aucune version est disponible actuellement, désolé !</p>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
 </body>
 </html>

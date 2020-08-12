@@ -1,7 +1,7 @@
 {
   "name": "onetwotrie",
   "productName": "OneTwoTrie",
-  "version": "07.08.2020",
+  "version": "12.08.2020",
   "description": "OneTwoTrie, et un pas de plus vers l'écologie !",
   "main": "main.js",
   "scripts": {
