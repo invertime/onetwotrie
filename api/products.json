@@ -6,13 +6,5 @@
         "type": "bouteille",
         "ext": "jpg",
         "alimentaire": "no"
-    },
-    {
-        "barcode": "123456789123",
-        "name": "testing",
-        "brand": "marque",
-        "type": "papier",
-        "ext": "png",
-        "alimentaire": "no"
     }
 ]
