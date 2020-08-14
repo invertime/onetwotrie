@@ -6,5 +6,13 @@
         "type": "bouteille",
         "ext": "jpg",
         "alimentaire": "no"
+    },
+    {
+        "barcode": "12346787543",
+        "name": "pas alim",
+        "brand": "pas ouf",
+        "type": "papier",
+        "ext": "\/tmp\/php1Jfqve",
+        "alimentaire": "no"
     }
 ]
