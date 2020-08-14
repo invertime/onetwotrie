@@ -6,13 +6,5 @@
         "type": "bouteille",
         "ext": "jpg",
         "alimentaire": "no"
-    },
-    {
-        "barcode": "64578874628",
-        "name": "alim",
-        "brand": "aliwimiwi",
-        "type": "yaourt",
-        "ext": "",
-        "alimentaire": "yes"
     }
 ]
