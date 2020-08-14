@@ -1,3 +1,12 @@
 {
-  "Limoges": {"papier":"Bac bleu"}
+  "Limoges": {
+    "potbocalverre":"conteneur à verre (vert)",
+    "potyaourt":"bac bleu",
+    "briquecarton":"bac bleu",
+    "boitemetal":"bac bleu",
+    "papier":"bac bleu",
+    "bouteilleplastique":"bac bleu",
+    "bouteilleverre":"conteneur à verre (vert)",
+    "porcelaine":"bac vert/déchetterie"
+  }
 }
