@@ -12,5 +12,19 @@
     "emballageplastique":"bac bleu",
     "bouteillemetal":"bac bleu",
     "canettealuminium":"bac bleu"
+  },
+  "Honfleur": {
+    "potbocalverre":"conteneur à verre (vert)",
+    "potyaourt":"bac jaune",
+    "briquealimentaire":"bac jaune",
+    "boitemetal":"bac jaune",
+    "papier":"bac bleu",
+    "bouteilleplastique":"bac jaune",
+    "bouteilleverre":"conteneur à verre (vert)",
+    "porcelaine":"déchetterie",
+    "boitecarton":"bac bleu",
+    "emballageplastique":"bac jaune",
+    "bouteillemetal":"bac jaune",
+    "canettealuminium":"bac jaune"
   }
 }
