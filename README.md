@@ -12,7 +12,7 @@ https://ott.vexcited.ml
 
 ### On a besoin d'aide !
 
-Le fichier /api/recyclage.json continet toutes les consignes de tri pour chaque villes, mais le problème c'est que nous pouvons pas tous les rajoutter à la main car
+Le fichier /api/recyclage.json contient toutes les consignes de tri pour chaque villes, mais le problème c'est que nous pouvons pas tous les rajoutter à la main car
 - Nous n'avons pas le temps
 - Nous ne connaissons pas toutes les consignes de tri de chaque ville
 
