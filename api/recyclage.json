@@ -11,7 +11,8 @@
     "boitecarton":"bac bleu",
     "emballageplastique":"bac bleu",
     "bouteillemetal":"bac bleu",
-    "canettealuminium":"bac bleu"
+    "canettealuminium":"bac bleu",
+    "paquetbiscuit":"bac bleu (sachets et emballage)"
   },
   "Honfleur": {
     "potbocalverre":"conteneur à verre (vert)",
@@ -25,6 +26,7 @@
     "boitecarton":"bac bleu",
     "emballageplastique":"bac jaune",
     "bouteillemetal":"bac jaune",
-    "canettealuminium":"bac jaune"
+    "canettealuminium":"bac jaune",
+    "paquetbiscuit":"bac jaune (sachets et emballage)"
   }
 }
