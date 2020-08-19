@@ -41,13 +41,13 @@ Nous mentionnons tous les contributeurs à la fin de ce fichier.
 ## [2] Application PC
 Uniquement disponible sur Windows pour le moment.
 
-* [Windows - Installateur](https://github.com/Vexcited/onetwotrie/releases/download/desktop-v12.08.2020/setup-onetwotrie-1208202.msi)
-* [Windows - Portable (.zip)](https://github.com/Vexcited/onetwotrie/releases/download/desktop-v12.08.2020/portable-onetwotrie-1208202-win32-ia32.zip)
+* [Windows - Installateur (.MSI)](https://github.com/Vexcited/onetwotrie/releases/download/desktop-v12.08.2020/setup-onetwotrie-1208202.msi)
+* [Windows - Portable (.ZIP)](https://github.com/Vexcited/onetwotrie/releases/download/desktop-v12.08.2020/portable-onetwotrie-1208202-win32-ia32.zip)
 
 ## [3] Application Mobile
 Uniquement disponible sur Android pour le moment.
 
-* [Android APK](https://github.com/Vexcited/onetwotrie/releases/download/mobile-v19.08.2020/onetwotrie-mobile-v19082020.apk)
+* [Android (.APK)](https://github.com/Vexcited/onetwotrie/releases/download/mobile-v19.08.2020/onetwotrie-mobile-v19082020.apk)
 
 ## [4] API
 En cours de développement...
