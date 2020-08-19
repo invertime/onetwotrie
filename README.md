@@ -7,8 +7,8 @@ https://ott.vexcited.ml
 
 1. [Intro](https://github.com/Vexcited/onetwotrie/#onetwotrie-et-un-pas-de-plus-vers-l%C3%A9cologie)
 2. [Application PC](https://github.com/Vexcited/onetwotrie/#2-application-pc)
-3. [Application Mobile (en cours de développement)](https://github.com/Vexcited/onetwotrie/#3-application-mobile)
-4. [API](https://github.com/Vexcited/onetwotrie/#4-api)
+3. [Application Mobile](https://github.com/Vexcited/onetwotrie/#3-application-mobile)
+4. [API (en cours)](https://github.com/Vexcited/onetwotrie/#4-api)
 
 ### On a besoin d'aide !
 
@@ -32,25 +32,25 @@ Explications des données:
     "emballageplastique" => Emballages plastiques (peut être des étuis aussi)
     "bouteillemetal" => Bouteilles en métal
     "canettealuminium" => Canettes [en aluminium]
+    "paquetbiscuit" => Emballage du paquet et sachets
 }
 ```
 
 Nous mentionnons tous les contributeurs à la fin de ce fichier.
 
 ## [2] Application PC
+Uniquement disponible sur Windows pour le moment.
 
-À la place de consulter https://ott.vexcited.ml à chaque fois, vous pouvez directement y accéder depuis l'application sur ordinateur.
-
-Uniquement disponible sur Windows (actuellement...)
-
-* [Dernières versions](https://github.com/Vexcited/onetwotrie/releases/)
+* [Windows - Installateur](https://github.com/Vexcited/onetwotrie/releases/download/desktop-v12.08.2020/setup-onetwotrie-1208202.msi)
+* [Windows - Portable (.zip)](https://github.com/Vexcited/onetwotrie/releases/download/desktop-v12.08.2020/portable-onetwotrie-1208202-win32-ia32.zip)
 
 ## [3] Application Mobile
-En cours de développement...
+Uniquement disponible sur Android pour le moment.
+
+* [Android APK](https://github.com/Vexcited/onetwotrie/releases/download/mobile-v19.08.2020/onetwotrie-mobile-v19082020.apk)
 
 ## [4] API
-[Informations](https://vexcited.github.io/onetwotrie/api/)
-URL => `https://vexcited.github.io/onetwotrie/api/product.html?{QUERY}`
+En cours de développement...
 
 ### Credits
 - [Collège Albert Calmette](http://www.clg-calmette.ac-limoges.fr/)
