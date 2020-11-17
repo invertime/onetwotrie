@@ -43,11 +43,10 @@ $('#scanner').keyup(function(){
 		return;
   }
 
-  $.get(searchProductUrl + $(this).val(), function(data){
-    var products = JSON.parse(data),
-      output = '';
+  $.get(searchProductUrl + $(this).val(), function(products){
+    var output = '';
 
-    $.each(products, function(val){
+    $.each(products, function(key, val){
       count++;
       
       if (count < 5){
