@@ -236,8 +236,7 @@ function checkAlternatives (name, alimentaire){
 // Change page to #product when a product is clicked in `Rechercher un produit`
 function changeModal ($barcode) {
   $.get(searchProductUrl, function(products){
-
-    $.each(products, function(val){
+    $.each(products, function(key, val){
       if(val.barcode == $barcode){
         if($('#image_generated').length){
           var hrefImage = $('#image_generated').attr('href');
@@ -278,7 +277,7 @@ Quagga.onDetected(function(result) {
       $quagga = 'started';
 
   $.get(searchProductUrl + $code, function(products){
-    $.each(products, function(val) {
+    $.each(products, function(key, val) {
       if(val.barcode == $code && $quagga != 'stopped'){
         Quagga.stop();
         $quagga = 'stopped';
