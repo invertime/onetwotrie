@@ -36,9 +36,8 @@ function startQuagga() {
 // Search a product in #scanner's input
 $('#scanner').keyup(function(){
   var count = 0;
-  searchField = $(this).val();
   
-	if(searchField === '') {
+	if($(this).val() === '') {
     $('#filter-records').html('');
     $('#scanner').css('border-radius', '4px');
 		return;
@@ -46,22 +45,20 @@ $('#scanner').keyup(function(){
 
   $.get(searchProductUrl + $(this).val(), function(data){
     var products = JSON.parse(data),
-			regex = new RegExp(searchField, "i"),
       output = '';
 
-    $.each(products, function(key, val){
-      if((val.name.search(regex) != -1) || (val.brand.search(regex) != -1) || (val.barcode.search(regex) != -1)) {
-        count++;
-        if(count < 5){
-          output += '<li><a href="javascript:void(0)" onclick="changeModal(' + val.barcode + ')">' + val.brand + ' - ' + val.name + '<img class="image_search" src="' + val.image + '"></img></a></li>';
-        }
+    $.each(products, function(val){
+      count++;
+      
+      if (count < 5){
+        output += '<li><a href="javascript:void(0)" onclick="changeModal(' + val.barcode + ')">' + val.brand + ' - ' + val.name + '<img class="image_search" src="' + val.image + '"></img></a></li>';
       }
     });
 
+    $('#scanner').css('border-radius', '4px 4px 0 0');
+    $('#filter-records').html('<ul class="box">' + output + '<span style="height: 5px; display: block;"></span></ul>');
+
   });
-  
-  $('#scanner').css('border-radius', '4px 4px 0 0');
-  $('#filter-records').html('<ul class="box">' + output + '<span style="height: 5px; display: block;"></span></ul>');
 });
 
 var recyalgeJsonHasBeenLoaded = false;
@@ -239,21 +236,19 @@ function checkAlternatives (name, alimentaire){
 
 // Change page to #product when a product is clicked in `Rechercher un produit`
 function changeModal ($barcode) {
-  $.get(searchProductUrl, function(data){
-    var products = JSON.parse(data);
+  $.get(searchProductUrl, function(products){
 
-    $.each(products, function(key, val){
+    $.each(products, function(val){
       if(val.barcode == $barcode){
-        var image_source = path + val.barcode + '.' + val.ext;
         if($('#image_generated').length){
           var hrefImage = $('#image_generated').attr('href');
-          if(hrefImage === image_source){
+          if(hrefImage === val.image){
             var newTitle = val.brand + ' - ' + val.name + ' - ' + val.barcode;
             $('#image_generated').attr('title', newTitle);
           }
         }
         else{
-          $('#product_image_span').html('<img id="image_generated" class="product_img" style="width: auto;" title="' + val.brand + ' - ' + val.name + ' - ' + val.barcode + '" src="' + image_source + '" />');
+          $('#product_image_span').html('<img id="image_generated" class="product_img" style="width: auto;" title="' + val.brand + ' - ' + val.name + ' - ' + val.barcode + '" src="' + val.image + '" />');
         }
         
 
@@ -283,10 +278,8 @@ Quagga.onDetected(function(result) {
   var $code = result.codeResult.code,
       $quagga = 'started';
 
-  $.get(searchProductUrl, function(data){
-    var products = JSON.parse(data);
-
-    $.each(products, function(key, val) {
+  $.get(searchProductUrl + $code, function(products){
+    $.each(products, function(val) {
       if(val.barcode == $code && $quagga != 'stopped'){
         Quagga.stop();
         $quagga = 'stopped';
