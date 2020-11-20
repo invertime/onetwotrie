@@ -48,6 +48,10 @@
         color: #0cc990;
       }
 
+      .is-grey {
+        background-color: hsl(0, 0%, 90%);
+      }
+
       a {
         font-weight: 500;
         transition: all .5s;
@@ -71,12 +75,12 @@
 <body>
 
     <nav class="navbar has-shadow" role="navigation" aria-label="main navigation">
-        <div class="container">
+        <div class="container is-fluid">
           <div class="navbar-brand">
             <a class="navbar-item" href="#">
               <img src="https://vexcited.github.io/onetwotrie/pages/images/icon.ico" alt="OneTwoTrie: Un pas de plus vers l'écologie" width="auto" height="28">
             </a>
-            <div class="navbar-burger"  data-target="navbar-menu">
+            <div class="navbar-burger" data-target="navbar-menu">
               <span></span>
               <span></span>
               <span></span>
@@ -91,8 +95,21 @@
           </div>
         </div>
       </nav>
+
+      <section class="hero is-grey is-medium">
+        <div class="hero-body">
+          <div class="container">
+            <h1 class="title">
+              OneTwoTrie : Un pas de plus vers l'écologie
+            </h1>
+            <h2 class="subtitle">
+              Application Web et Mobile pour mieux recycler ses déchets.
+            </h2>
+          </div>
+        </div>
+      </section>
       
-      <section id="downloads" class="hero is-dark">
+      <section id="downloads" class="hero is-primary">
         <div class="hero-body">
           <p class="title">
             Téléchargements
@@ -151,7 +168,7 @@
 
         <br>
 
-      <section id="api" class="hero is-dark">
+      <section id="api" class="hero is-primary">
         <div class="hero-body">
           <p class="title">
             API
