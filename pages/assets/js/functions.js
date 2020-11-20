@@ -1,12 +1,12 @@
 // Settings
 var times_i_form = 0,
     geolocalised = false,
-    searchProductUrl = 'https://www.vexcited.ml/api/onetwotrie/searchProduct.php?q=',
-    searchCityUrl = 'https://www.vexcited.ml/api/onetwotrie/searchCity.php?q=',
-    getCityUrl = 'https://www.vexcited.ml/api/onetwotrie/getCity.php',
+    searchProductUrl = 'https://www.vexcited.ml/api/onetwotrie/searchProduct?q=',
+    searchCityUrl = 'https://www.vexcited.ml/api/onetwotrie/searchCity?q=',
     request = new XMLHttpRequest(),
     searchField = villeField = '',
-    longitude, latitude;
+    longitude, latitude,
+    recyalgeJsonHasBeenLoaded = false;
 
 // Start QuaggaJS for #camera
 function startQuagga() {
@@ -34,9 +34,7 @@ function startQuagga() {
 }
 
 // Search a product in #scanner's input
-$('#scanner').keyup(function(){
-  var count = 0;
-  
+$('#scanner').keyup(function(){  
 	if($(this).val() === '') {
     $('#filter-records').html('');
     $('#scanner').css('border-radius', '4px');
@@ -44,76 +42,60 @@ $('#scanner').keyup(function(){
   }
 
   $.get(searchProductUrl + $(this).val(), function(products){
-    var output = '';
+    var output = '',
+        count = 0;
 
-    $.each(products, function(key, val){
-      count++;
-      
-      if (count < 5){
-        output += '<li><a href="javascript:void(0)" onclick="changeModal(' + val.barcode + ')">' + val.brand + ' - ' + val.name + '<img class="image_search" src="' + val.image + '"></img></a></li>';
-      }
-    });
+    if (products['status'] == true) {
+      $.each(products['results'], function(key, val){
+        count++;
+        
+        if (count < 5){
+          output += '<li> \
+          <a href="javascript:void(0)" onclick="changeModal(' + val.barcode + ')">' +
+          val.brand + ' - ' + val.name 
+          + '<img class="image_search" src="' + val.image + '"></img></a></li>';
+        }
+      });
+    }
+    else if (products['status'] == false) {
+      output += '<li><a href="javascript:void(0)">Erreur serveur</a></li>';
+      output += '<li><a href="javascript:void(0)">Veuillez réesayer</a></li>';
+    }
 
     $('#scanner').css('border-radius', '4px 4px 0 0');
     $('#filter-records').html('<ul class="box">' + output + '<span style="height: 5px; display: block;"></span></ul>');
-
   });
 });
 
-var recyalgeJsonHasBeenLoaded = false;
-
-function loadRecyclageJson(){
-  $.getJSON(getCityUrl, function(cities){
-    // Create new cities array
-    var newArrayCities = '[';
-    $.each(cities, function(key, val){
-      // Add every cities to this array
-      newArrayCities += '"' + key + '",';
-    });
-
-    // Remove last comma
-    newArrayCities = newArrayCities.substring(0, newArrayCities.length - 1);
-
-    // Close the array
-    newArrayCities += ']';
-    
-    // Put it into hidden input (cause it's a string actually)
-    $('#arraycities').val(newArrayCities);
-  });
-
-  // Say that it loaded the cities
-  recyalgeJsonHasBeenLoaded = true;
-}
-
 // Search a city in #localisation's input
 $('#localisation').keyup(function(){
-  if(recyalgeJsonHasBeenLoaded === false){
-    loadRecyclageJson();
+  if($(this).val() === '') {
+    $('#filter-ville').html('');
+    $('#localisation').css('border-radius', '4px');
+    return;
   }
-  else{
-    var cityNums = 0;
-    villeField = $(this).val(),
-    cities = JSON.parse($('#arraycities').val()),
-    citiesOut = '';
 
-    if(villeField === '') {
-      $('#filter-ville').html('');
-      $('#localisation').css('border-radius', '4px');
-      return;
-    }
-
-    for (i = 0; i < cities.length; i++) {
-      if (cities[i].substr(0, villeField.length).toUpperCase() == villeField.toUpperCase()) {
+  $.get(searchCityUrl + $(this).val(), function(cities){
+    var citiesOut = '',
+        cityNums = 0;
+  
+    if (cities['status'] == true) {
+      $.each(cities['results'], function(key, val){
         cityNums++;
-        if(cityNums < 8){
-          citiesOut += '<li><a href="javascript:void(0)" onclick="startInputGeo(\''+cities[i]+'\', $(\'#geoTypeBefore\').val());">' + cities[i] + '</a></li>';
+        
+        if (cityNums < 8){
+          citiesOut += '<li><a href="javascript:void(0)" onclick="startInputGeo(\''+val['name']+'\', $(\'#geoTypeBefore\').val());">' + val['name'] + '</a></li>';
         }
-      }
+      });
     }
-
+    else if (cities['status'] == false) {
+      citiesOut += '<li><a href="javascript:void(0)">Erreur serveur</a></li>';
+      citiesOut += '<li><a href="javascript:void(0)">Veuillez réesayer</a></li>';
+    }
+  
     $('#localisation').css('border-radius', '4px 4px 0 0');
     $('#filter-ville').html('<ul class="boxCity box">' + citiesOut + '<span style="height: 5px; display: block;"></span></ul>');
-  }  
+  });    
 });
 
 /****** - Functions -  ******/
@@ -177,8 +159,8 @@ function finalizeProduct (type, city){
 
 function consignes (city, type){
   if($('#consignesCity').val() === ''){
-    $.getJSON(getCityUrl, function(recyclage){
-      $('#consignesCity').val(JSON.stringify(recyclage[city]));
+    $.getJSON(searchCityUrl + city, function(recyclage){
+      $('#consignesCity').val(JSON.stringify(recyclage['results'][0]['consignes']));
       finalizeProduct(type, city);
     });
   }
@@ -188,7 +170,6 @@ function consignes (city, type){
 }
 
 function GetCity (type){
-
   // Show a loader while getJSON
   $("#geoStatus").html('Chargement...');
 
@@ -236,7 +217,7 @@ function checkAlternatives (name, alimentaire){
 // Change page to #product when a product is clicked in `Rechercher un produit`
 function changeModal ($barcode) {
   $.get(searchProductUrl, function(products){
-    $.each(products, function(key, val){
+    $.each(products['results'], function(key, val){
       if(val.barcode == $barcode){
         if($('#image_generated').length){
           var hrefImage = $('#image_generated').attr('href');
@@ -277,7 +258,7 @@ Quagga.onDetected(function(result) {
       $quagga = 'started';
 
   $.get(searchProductUrl + $code, function(products){
-    $.each(products, function(key, val) {
+    $.each(products['results'], function(key, val) {
       if(val.barcode == $code && $quagga != 'stopped'){
         Quagga.stop();
         $quagga = 'stopped';

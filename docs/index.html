@@ -23,41 +23,249 @@
     <meta name="og:description" content="OneTwoTrie, et un pas de plus vers l'écologie"/>
     <meta name="og:email" content="vexitofficial@gmail.com"/>
 
-    <!-- CSS -->
+    <!-- CSS 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.0-alpha1/css/bootstrap.min.css">
+-->
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
     <!-- Icon -->
     <link rel="shortcut icon" href="https://vexcited.github.io/onetwotrie/pages/images/icon.ico" type="image/x-icon">
     <title>OneTwoTrie - Docs</title>
 
-    <!-- Custom CSS -->
     <style>
-        html, body{
-            margin: 0;
-            padding: 0;
-        }
-        body{
-            height: 100vh;
-            width: 100vw;
-            background-color: #2E3440;
-        }
-        h1, p{
-            color: #D8DEE9;
-        }
-        a{
-            color: #81A1C1;
-            text-decoration: none;
-        }
-        a:hover{
-            color:#5E81AC;
-        }
-        .modal-body p{
-            color: #2E3440;
-        }
+      a {
+        color: #0cc990;
+      }
+
+      code {
+        background-color: #4a4a4a;
+        border-radius: 4px;
+        color: #fff;
+        transition: all .5s;
+      }
+
+      code:hover {
+        color: #0cc990;
+      }
+
+      a {
+        font-weight: 500;
+        transition: all .5s;
+      }
+
+      a:hover {
+        color: #1f6b54;
+      }
+
+      a.navbar-item:hover {
+        color: #0cc990;
+        /* background-color: transparent; */
+        padding: .5rem 1.25rem;
+      }
+
+      .footer {
+        padding-bottom: 4rem;
+      }
     </style>
 </head>
 <body>
 
+    <nav class="navbar has-shadow" role="navigation" aria-label="main navigation">
+        <div class="container">
+          <div class="navbar-brand">
+            <a class="navbar-item" href="#">
+              <img src="https://vexcited.github.io/onetwotrie/pages/images/icon.ico" alt="OneTwoTrie: Un pas de plus vers l'écologie" width="auto" height="28">
+            </a>
+            <div class="navbar-burger"  data-target="navbar-menu">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+      
+          <div class="navbar-menu" id="navbar-menu">
+            <div class="navbar-end">
+              <a class="navbar-item" href="#downloads"> Téléchargements</a>
+              <a class="navbar-item" href="#api">API</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+      
+      <section id="downloads" class="hero is-dark">
+        <div class="hero-body">
+          <p class="title">
+            Téléchargements
+          </p>
+          <p class="subtitle">
+            Pour transporter <strong>OneTwoTrie</strong> plus facilement
+          </p>
+        </div>
+      </section>
+
+      <br>
+
+        <div class="container is-fluid">
+            <div class="columns">
+                <div class="column">
+                    <div class="card">
+                        <header class="card-header">
+                          <p class="card-header-title">
+                            PC
+                          </p>
+                        </header>
+                        <div class="card-content">
+                          <div class="content">
+                            Depuis les dernières <a href="https://github.com/Vexcited/onetwotrie/releases">releases GitHub</a>.
+                            Mac OS et Linux ne sont pas encore supportés.
+                          </div>
+                        </div>
+                        <footer class="card-footer">
+                          <a href="https://github.com/Vexcited/onetwotrie/releases/download/desktop-v12.08.2020/setup-onetwotrie-1208202.msi" class="card-footer-item">Windows</a>
+                          <a href="#" class="card-footer-item">Mac OS</a>
+                          <a href="#" class="card-footer-item">Linux</a>
+                        </footer>
+                      </div>
+                </div>
+                <div class="column">
+                    <div class="card">
+                        <header class="card-header">
+                          <p class="card-header-title">
+                            Mobile
+                          </p>
+                        </header>
+                        <div class="card-content">
+                          <div class="content">
+                            Depuis les dernières <a href="https://github.com/Vexcited/onetwotrie/releases">releases GitHub</a>.
+                            iOS n'est pas encore supporté.
+                          </div>
+                        </div>
+                        <footer class="card-footer">
+                          <a href="https://github.com/Vexcited/onetwotrie/releases/download/mobile-v19.08.2020/onetwotrie-mobile-v19082020.apk" class="card-footer-item">Android</a>
+                          <a href="#" class="card-footer-item">iOS</a>
+                        </footer>
+                      </div>
+                </div>
+            </div>
+        </div>
+
+        <br>
+
+      <section id="api" class="hero is-dark">
+        <div class="hero-body">
+          <p class="title">
+            API
+          </p>
+          <p class="subtitle">
+            Pour les <strong>développeurs</strong>
+          </p>
+        </div>
+      </section>
+
+      <br>
+
+      <div class="container is-fluid">
+        <div class="has-text-centered">
+          <p class="is-size-3">Endpoint API</p>
+          <code>https://www.vexcited.ml/api/onetwotrie</code>
+        </div>
+
+        <br> <br>
+
+        <p class="title">
+          <code>GET /searchProduct</code>
+        </p>
+
+        <p>Recherche un produit en fonction du paramètre <code>q</code>. <br>
+          Peut être le <b>nom du produit</b>, <b>sa marque</b> ou <b>son code-barres</b>.</p>
+        <p><code>q</code>  - Query (<b>Obligatoire</b>)</p> <br>
+
+        <p class="subtitle"><b>Exemple</b> de retour avec <code>/searchProduct?q=Cristaline</code></p>
+
+<pre>
+{
+ "status": true,
+ "query": "Cristaline",
+ "num_rows": 1,
+ "results": [
+  {
+   "productID": 1,
+   "barcode": "3274080005003",
+   "name": "Eau de source 150cl",
+   "brand": "Cristaline",
+   "type": "bouteilleplastique",
+   "image": "https://raw.githubusercontent.com/Vexcited/onetwotrie/master/src/api/images/3274080005003.jpg",
+   "alimentaire": "no"
+  }
+ ]
+}
+</pre>
+
+<br> <hr> <br>
+
+        <p class="title">
+          <code>GET /searchCity</code>
+        </p>
+
+        <p>Recherche une ville en fonction du paramètre <code>q</code>. <br>
+          Peut être le nom de la <b>ville</b> ou du <b>code-postal</b>.</p>
+        <p><code>q</code>  - Query (<b>Obligatoire</b>)</p> <br>
+
+        <p class="subtitle"><b>Exemple</b> de retour avec <code>/searchCity?q=Limoges</code></p>
+
+<pre>
+{
+ "status": true,
+ "query": "Limoges",
+ "num_rows": 1,
+ "results": [
+  {
+   "cityID": 1,
+   "name": "Limoges",
+   "cPostal": [
+    87000,
+    87100,
+    87280,
+    87170
+   ],
+   "consignes": {
+    "papier": "bac bleu",
+    "potyaourt": "bac bleu",
+    "boitemetal": "bac bleu",
+    "porcelaine": "dechetterie",
+    "boitecarton": "bac bleu",
+    "paquetbiscuit": "bac bleu (sachets et emballage)",
+    "potbocalverre": "conteneur verre (vert)",
+    "bouteillemetal": "bac bleu",
+    "bouteilleverre": "conteneur verre (vert)",
+    "canettealuminium": "bac bleu",
+    "briquealimentaire": "bac bleu",
+    "bouteilleplastique": "bac bleu",
+    "emballageplastique": "bac bleu"
+   }
+  }
+ ]
+}
+</pre>
+
+        
+        
+      </div>
+
+      <br> <br> <br>
+
+      <footer class="footer">
+        <div class="content has-text-centered">
+          <p>
+            <strong>OneTwoTrie : Un pas de plus vers l'écologie</strong> <br>
+            Un projet scolaire fait avec le <a href="http://www.clg-calmette.ac-limoges.fr/">Collège Albert Calmette à Limoges</a> <br>
+            Projet terminé par <a href="https://www.vexcited.ml/">Vexcited (Mikkel)</a> & <a href="https://www.invertime.ml/">Invertime (Jules)</a>.
+          </p>
+        </div>
+      </footer>
+
+      
+<!-- 
     <div class="container h-100">
         <div class="row h-100 justify-content-center align-items-center">
             <div class="col-12 text-center" style="z-index:99;">
@@ -81,7 +289,6 @@
         </div>
     </div>
 
-    <!-- Modal -->
     <div class="modal fade" id="desktop" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
@@ -130,5 +337,36 @@
         </div>
     </div>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
+-->
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+
+      // Get all "navbar-burger" elements
+      var $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+
+      // Check if there are any navbar burgers
+      if ($navbarBurgers.length > 0) {
+
+        // Add a click event on each of them
+        $navbarBurgers.forEach(function ($el) {
+          $el.addEventListener('click', function () {
+
+            // Get the target from the "data-target" attribute
+            var target = $el.dataset.target;
+            var $target = document.getElementById(target);
+
+            // Toggle the class on both the "navbar-burger" and the "navbar-menu"
+            $el.classList.toggle('is-active');
+            $target.classList.toggle('is-active');
+
+          });
+        });
+      }
+
+    });
+  </script>
+
+
 </body>
 </html>
